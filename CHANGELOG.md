@@ -4,9 +4,11 @@ Every published version is listed here with its digest.
 A digest names both architectures of a version at once, `linux/amd64` and
 `linux/arm64`, and it is what a workflow should pin.
 
-## Unreleased
+## 0.1.0
 
-### 0.1.0
+```text
+ghcr.io/kdominic89/madr-check@sha256:6cf72273d511aa00676f48741bc3436e6a00bad82bdf9d84f37b7298137ea888
+```
 
 The first version.
 
