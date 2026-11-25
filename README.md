@@ -37,7 +37,43 @@ docker run --rm --network none --user "$(id -u):$(id -g)" \
 ```
 
 Text you wrote around the index table is kept as it is.
-An index somebody keeps by hand is left alone and named.
+An index somebody keeps by hand is left alone and named,
+and no second one is started beside it.
+
+A directory that has no index yet gets one started, `index.md` and
+`index.json`, where its profile has one: `doka` and `ai-devops`, not `madr`.
+No index is written from records that do not satisfy their profile;
+the command then exits 1 and names what is wrong.
+
+### The data index
+
+`index.json` is the index for programs.
+It is written the same way for the same records, byte for byte.
+
+```json
+{
+  "schema_version": 1,
+  "decisions": [
+    {
+      "id": "ADR-0001",
+      "title": "...",
+      "status": "accepted",
+      "date": "2026-01-31",
+      "path": "ADR-0001-example.md",
+      "supersedes": [],
+      "superseded_by": null,
+      "amends": [],
+      "amended_by": [],
+      "depends_on": []
+    }
+  ]
+}
+```
+
+What `schema_version` 1 promises: no key above goes away and none changes
+its meaning, or the number rises.
+New keys may be added under the same number, so a reader takes the keys it
+knows, ignores the rest and refuses a `schema_version` it does not know.
 
 ## Profiles
 
